@@ -1,0 +1,95 @@
+.auth{position:relative;min-height:100vh;display:grid;place-items:center;padding:32px 16px;font-family:'Nunito',system-ui,sans-serif;color:#1b1b1f;
+  background:linear-gradient(rgba(16,20,48,.5),rgba(16,20,48,.5)),url('/images/loginsignupimage.png') center/cover no-repeat,#232d66}
+.auth__card{position:relative;z-index:1;width:min(980px,100%);height:660px;overflow:hidden;border-radius:8px;background:#fffaf5;box-shadow:0 40px 90px rgba(0,0,0,.55);
+  animation:authrise .5s cubic-bezier(.22,.8,.3,1) both}
+
+/* form panes */
+.auth__pane{position:absolute;top:0;width:50%;height:100%;box-sizing:border-box;padding:28px 50px;display:flex;flex-direction:column;justify-content:center;overflow-y:auto;
+  opacity:0;visibility:hidden;transition:opacity .35s ease,visibility 0s linear .6s}
+.auth__pane--login{left:0}.auth__pane--signup{left:50%}
+.auth__pane.on{opacity:1;visibility:visible;transition:opacity .45s ease .25s,visibility 0s}
+.auth__logo{display:flex;flex-direction:column;align-items:center;gap:4px;margin-bottom:16px;font-family:'Lora',Georgia,serif;font-weight:700;font-size:1.3rem;text-align:center}
+.auth__logo img{height:48px}
+.auth__badge{width:46px;height:46px;border-radius:50%;background:#1c2556;color:#fdc83d;display:grid;place-items:center;font-size:1.4rem}
+.auth__logo .l1{color:#1b1b1f}.auth__logo .l2{color:#28346a}.auth__logo .l3{color:#c98a00}
+.auth__title{font-family:'Lora',Georgia,serif;font-size:1.85rem;font-weight:600;color:#1c2556;margin-bottom:4px}
+.auth__sub{font-size:.85rem;line-height:1.55;color:#5b5b66;margin-bottom:18px}
+.auth__form{display:grid;gap:11px}
+.auth__names{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.auth__label,.auth__field label{display:block;font-size:.76rem;font-weight:700;color:#3b3f55;margin-bottom:5px}
+
+/* inputs with icons */
+.auth__input{position:relative}
+.auth__ico{position:absolute;left:14px;top:12px;color:#8a8fa8;pointer-events:none}
+.auth__input input{display:block;width:100%;box-sizing:border-box;height:42px;padding:0 40px 0 42px;border-radius:6px;border:1.5px solid #d8c6b6;background:#f7f1ea;color:#1c2556;font:400 .92rem 'Nunito',sans-serif;transition:border-color .2s,box-shadow .2s}
+.auth__input input:focus{outline:none;border-color:#fdc83d;box-shadow:0 0 0 4px rgba(253,200,61,.25)}
+.auth__field.bad .auth__input input{border-color:#d9534f}
+.auth__eye{position:absolute;right:6px;top:5px;width:32px;height:32px;border:0;border-radius:8px;background:none;color:#8a8fa8;cursor:pointer;display:grid;place-items:center}
+.auth__eye:hover{color:#28346a}
+.auth__eye:focus-visible{outline:2px solid #fdc83d}
+.auth__err{color:#b3261e;font-size:.74rem;margin-top:3px}
+
+/* role switch */
+.auth__roles{display:grid;grid-template-columns:1fr 1fr;gap:3px;padding:3px;border-radius:6px;background:#f1e7dc;border:1.5px solid #d8c6b6}
+.auth__roles button{padding:9px;border:0;border-radius:9px;background:transparent;color:#5b5b66;font:700 .85rem 'Nunito',sans-serif;cursor:pointer;transition:background .2s,color .2s,box-shadow .2s}
+.auth__roles button:hover{color:#1c2556}
+.auth__roles button.on{background:#fff;color:#1c2556;font-weight:800;box-shadow:0 2px 8px rgba(40,52,106,.18)}
+.auth__roles button:focus-visible{outline:2px solid #fdc83d;outline-offset:1px}
+
+/* login extras */
+.auth__opts{display:flex;justify-content:space-between;align-items:center;font-size:.8rem}
+.auth__check{display:flex;align-items:center;gap:7px;margin:0;font-weight:600;color:#3b3f55;cursor:pointer}
+.auth__check input{width:15px;height:15px;accent-color:#28346a}
+.auth__link{background:none;border:0;padding:0;color:#28346a;font:800 .78rem 'Nunito',sans-serif;cursor:pointer}
+.auth__link:hover{text-decoration:underline}
+.auth__alert{padding:9px 12px;border-radius:10px;background:#fde8e6;border:1px solid #f1a9a1;color:#8a1f14;font-size:.82rem}
+.auth__notice{font-size:.78rem;color:#5b5b66}
+.auth__btn{margin-top:4px;height:46px;border-radius:12px;border:0;background:linear-gradient(135deg,#34448f,#1c2556);color:#fff;font:800 .95rem 'Nunito',sans-serif;cursor:pointer;box-shadow:0 10px 20px rgba(40,52,106,.3);transition:transform .15s,box-shadow .2s}
+.auth__btn:hover:not(:disabled){transform:translateY(-1px);box-shadow:0 14px 24px rgba(40,52,106,.35)}
+.auth__btn:disabled{opacity:.65;cursor:wait}
+.auth__switch{display:none;margin-top:16px;text-align:center;font-size:.84rem;color:#5b5b66}
+.auth__switch button{background:none;border:0;color:#28346a;font:800 .84rem 'Nunito',sans-serif;cursor:pointer;text-decoration:underline}
+
+/* gliding panel */
+.auth__panel{position:absolute;top:0;left:50%;z-index:2;width:50%;height:100%;overflow:hidden;color:#fff;
+  background:linear-gradient(180deg,rgba(40,52,115,.55) 0%,rgba(24,32,85,.72) 45%,rgba(14,19,55,.93) 100%),url('/images/forloginpage.jpg') center 25%/cover no-repeat,#1c2556;
+  box-shadow:0 0 40px rgba(10,14,40,.5);transition:transform .65s cubic-bezier(.65,0,.35,1)}
+.is-signup .auth__panel{transform:translateX(-100%)}
+.auth__ptxt{position:absolute;inset:0;padding:40px 40px 78px;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;text-align:center;
+  opacity:0;visibility:hidden;transition:opacity .3s ease,visibility 0s linear .4s}
+.auth__ptxt.on{opacity:1;visibility:visible;transition:opacity .4s ease .3s,visibility 0s}
+.auth__ptxt h2{font-family:'Lora',Georgia,serif;font-size:2.1rem;font-weight:600;color:#fdc83d;margin-bottom:12px;text-shadow:0 2px 14px rgba(0,0,0,.6)}
+.auth__ptxt p{font-size:.95rem;line-height:1.65;max-width:280px;color:#fff;margin-bottom:26px;text-shadow:0 1px 8px rgba(0,0,0,.7)}
+.auth__ptxt button{padding:11px 38px;border-radius:999px;border:2px solid #fdc83d;background:rgba(20,27,70,.5);color:#fdc83d;font:800 .9rem 'Nunito',sans-serif;cursor:pointer;transition:background .2s,color .2s}
+.auth__ptxt button:hover{background:#fdc83d;color:#1c2556}
+.auth__ptxt button:focus-visible{outline:2px solid #fff;outline-offset:3px}
+
+/* entrance: navy veil fades off the background, card rises in, panel + forms follow */
+.auth::before{content:"";position:absolute;inset:0;z-index:0;background:#1c2556;pointer-events:none;animation:authveil .5s ease both}
+@keyframes authveil{to{opacity:0}}
+@keyframes authrise{from{opacity:0;transform:translateY(24px) scale(.98)}}
+@keyframes authitem{from{opacity:0;transform:translateY(8px)}}
+@keyframes authfadein{from{opacity:0}}
+@media(min-width:761px){
+  .auth__pane>*{animation:authitem .4s ease .15s both}
+  .auth__panel{animation:authfadein .4s ease .15s both}
+}
+
+/* phones: no panel, one form at a time */
+@media(max-width:760px){
+  .auth__card{height:auto}
+  .auth__panel{display:none}
+  .auth__pane{position:static;width:100%;padding:26px 22px;display:none;opacity:1;visibility:visible;transition:none}
+  .auth__pane.on{display:flex;animation:authfade .4s ease both}
+  .auth__switch{display:block}
+  .auth__names{grid-template-columns:1fr}
+}
+@keyframes authfade{from{opacity:0;transform:translateY(10px)}}
+
+/* reduced motion: switch everything off */
+@media(prefers-reduced-motion:reduce){
+  .auth__panel,.auth__pane,.auth__ptxt{transition:none!important}
+  .auth__pane.on{animation:none}
+  .auth::before{display:none}
+  .auth__card,.auth__panel,.auth__pane>*{animation:none!important}
+}
