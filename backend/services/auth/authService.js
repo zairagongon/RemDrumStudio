@@ -1,12 +1,12 @@
 require('dotenv').config();
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-const userModel = require('../models/userModel');
+const userModel = require('../../models/shared/userModel');
 
 const SECRET = process.env.JWT_SECRET;
-if (!SECRET) throw new Error('JWT_SECRET is missing. Add it to backend/.env');
+if (!SECRET) throw new Error('JWT_SECRET is missing. Add it to backend/.env (see .env.example).');
 const EXPIRES = process.env.JWT_EXPIRES_IN || '7d';
-const DUMMY_HASH = bcrypt.hashSync('not-a-real-password', 10);
+const DUMMY_HASH = bcrypt.hashSync('not-a-real-password', 10); // keeps login timing similar for unknown emails
 
 const httpError = (status, message) => Object.assign(new Error(message), { status });
 const toPublic = u => ({
@@ -49,3 +49,7 @@ exports.getMe = async id => {
 };
 
 exports.verifyToken = token => jwt.verify(token, SECRET);
+
+// Used by the invite flow
+exports.makeToken = makeToken;
+exports.toPublic = toPublic;

@@ -1,4 +1,4 @@
-const tutorService = require('../services/tutorService');
+const tutorService = require('../../services/landingpage/tutorService');
 
 exports.getTutors = async (req, res, next) => {
   try {

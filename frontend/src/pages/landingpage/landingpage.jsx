@@ -11,7 +11,7 @@ const DEFAULT_TUTORS = [
     bio: 'Founder of the studio and a drummer for more than 27 years. Patient with first-timers and demanding with performers.' },
   { id: 2, name: 'Pedro Penduco', instrument: 'Guitar & Bass', image_url: 'images/pedro.jpg',
     bio: 'Builds strong fundamentals first, then helps students play the songs they actually want to play.' },
-  { id: 3, name: 'Mang Kepweng', instrument: 'Voice', image_url: 'images/mangkepweng.jpg',
+  { id: 3, name: 'Mang Kepweng', instrument: 'Voice', image_url: 'images/mang.jpg',
     bio: 'Works on breath, pitch, and stage confidence, from first-time singers to seasoned performers.' },
   { id: 4, name: 'Ana Reyes', instrument: 'Piano', image_url: 'images/ana.jpg',
     bio: 'Makes reading and theory feel simple. Clear, encouraging, and always prepared for every lesson.' }
@@ -32,10 +32,7 @@ const STEPS = [
 ];
 
 const hideBroken = e => { e.currentTarget.hidden = true; };
-
-const imgSrc = p =>
-  !p ? '' : /^(https?:)?\/\/|^data:|^blob:/i.test(p) ? p : '/' + p.replace(/^\/+/, '');
-
+const imgSrc = p => (p ? '/' + p.replace(/^\/+/, '') : '');
 const scrollToTop = e => {
   e.preventDefault();
   window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -129,7 +126,7 @@ function Navbar() {
 function Hero() {
   return (
     <section className="hero">
-      <div className="hero__bg"><img src="/images/forlandingpage.png" alt="" /></div>
+      <div className="hero__bg"><img src="/images/forlandingpage.png" /></div>
       <div className="hero__content">
         <p className="eyebrow">Established 1999 · Balayan, Philippines</p>
         <h1>Where every <em>note</em> finds its voice.</h1>
@@ -202,16 +199,7 @@ function Tutors() {
         <div className="tutors__grid">
           {tutors.map(t => (
             <article className="card tutor" key={t.id}>
-              <div className="tutor__photo">
-                {initials(t.name)}
-                <img
-                  src={imgSrc(t.image_url)}
-                  alt={t.name}
-                  loading="lazy"
-                  referrerPolicy="no-referrer"
-                  onError={hideBroken}
-                />
-              </div>
+              <div className="tutor__photo">{initials(t.name)}<img src={imgSrc(t.image_url)} alt={t.name} onError={hideBroken} /></div>
               <h3>{t.name}</h3>
               <span className="tag">{t.instrument}</span>
               <p>{t.bio}</p>
@@ -229,7 +217,7 @@ function Instruments() {
       <div className="container">
         <p className="eyebrow center">Instruments</p>
         <h2 className="center">Pick your <em>sound.</em></h2>
-        <p className="center lead">Choose an instrument when you book. Set time for lessons, one student at a time.</p>
+        <p className="center lead">Choose an instrument when you book. Lessons are 60 minutes, one student at a time.</p>
         <div className="instruments__grid">
           {INSTRUMENTS.map(i => (
             <article className="inst" key={i.name}>
@@ -259,7 +247,7 @@ function Rate() {
           </ul>
         </div>
         <div className="fee">
-          <p className="fee__label">LESSON FEE STARTS AT</p>
+          <p className="fee__label">LESSON FEE</p>
           <p className="fee__price"><span>₱</span>500</p>
           <p className="fee__per">per lesson</p>
           <dl>

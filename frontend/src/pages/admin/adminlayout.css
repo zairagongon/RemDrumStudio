@@ -1,0 +1,23 @@
+.adm{display:flex;min-height:100vh;font-family:'Inter',system-ui,sans-serif;background:#f3f4f8;color:#1c2456}
+.adm__side{width:232px;flex:none;box-sizing:border-box;background:#1c2456;padding:24px 16px;display:flex;flex-direction:column;position:sticky;top:0;height:100vh}
+.adm__brand{display:flex;align-items:center;gap:10px;margin-bottom:28px;padding:0 4px;font-weight:700;font-size:1.05rem;color:#fff}
+.adm__logo{width:38px;height:38px;border-radius:10px;background:#f0b429;display:grid;place-items:center}
+.adm__label{font-weight:700;font-size:.7rem;letter-spacing:.12em;color:#9aa1c8;margin:0 0 10px 4px}
+.adm__link{display:block;padding:11px 14px;margin-bottom:4px;border-radius:10px;border-left:3px solid transparent;font-weight:600;font-size:.9rem;color:#c9cee6;text-decoration:none}
+.adm__link:hover{background:rgba(255,255,255,.06)}
+.adm__link.on{background:rgba(255,255,255,.1);color:#fff;border-left-color:#f0b429}
+.adm__link:focus-visible,.adm__logout:focus-visible{outline:2px solid #f0b429;outline-offset:2px}
+.adm__user{margin-top:auto;border-top:1px solid rgba(255,255,255,.15);padding-top:16px}
+.adm__who{display:flex;align-items:center;gap:10px;margin-bottom:12px;color:#fff;font-size:.9rem}
+.adm__who b{display:block}.adm__who small{color:#c9cee6;font-size:.75rem}
+.adm__avatar{width:36px;height:36px;border-radius:50%;background:#f0b429;color:#1c2456;display:grid;place-items:center;font-weight:700;font-size:.8rem}
+.adm__logout{width:100%;padding:10px;border-radius:10px;border:1px solid rgba(255,255,255,.35);background:transparent;color:#fff;font:600 .9rem 'Inter',sans-serif;cursor:pointer}
+.adm__logout:hover{background:rgba(255,255,255,.08)}
+.adm__main{flex:1;min-width:0;display:flex;flex-direction:column}
+.adm__top{height:64px;flex:none;background:#fff;border-bottom:1px solid #e4e7f0;display:flex;align-items:center;justify-content:space-between;padding:0 40px;font-size:.95rem;color:#5d6385}
+.adm__title{font-size:1.05rem;font-weight:700;color:#1c2456}
+.adm__topright{display:flex;align-items:center;gap:16px}
+.adm__bell{position:relative;width:42px;height:42px;border-radius:12px;border:1px solid #cfd4e6;background:#fff;display:grid;place-items:center;cursor:pointer}
+.adm__dot{position:absolute;top:7px;right:8px;width:10px;height:10px;border-radius:50%;background:#e5484d;border:2px solid #fff}
+.adm__content{padding:30px 40px 60px}
+@media(max-width:860px){.adm{flex-direction:column}.adm__side{position:static;width:100%;height:auto}.adm__user{margin-top:16px}.adm__content{padding:20px 16px 48px}}

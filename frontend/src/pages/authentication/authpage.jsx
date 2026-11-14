@@ -3,8 +3,9 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { login, signup, saveSession, ROLE_HOME } from '../../services/auth.js';
 import './authpage.css';
 
-// One page for both /login and /signup. The navy panel glides between the two forms.
-// Coaches are not here on purpose: the admin creates coach accounts.
+const BG_IMAGE = '/images/loginsignupimage.png';          
+const PANEL_IMAGE = '/images/forloginpage.jpg';  
+
 const ROLES = [['student', 'Student'], ['parent', 'Parent']];
 const EMPTY = { firstName: '', lastName: '', email: '', password: '', confirm: '' };
 
@@ -24,7 +25,6 @@ function Icon({ name, className = 'auth__ico' }) {
   );
 }
 
-// Label + icon + input (+ show/hide button for passwords) + error text
 function Field({ id, label, type = 'text', icon, value, onChange, auto, error }) {
   const [show, setShow] = useState(false);
   const isPassword = type === 'password';
@@ -63,6 +63,14 @@ const validateSignup = f => {
   if (f.password.length < 8) e.password = 'Use at least 8 characters.';
   if (f.confirm !== f.password) e.confirm = 'Passwords do not match.';
   return e;
+};
+
+// Hands the image paths above to the CSS
+const imageVars = {
+  '--auth-bg': BG_IMAGE
+    ? `linear-gradient(rgba(18,23,53,.35),rgba(18,23,53,.35)), url("${BG_IMAGE}") center/cover no-repeat`
+    : 'none',
+  '--panel-img': `url("${PANEL_IMAGE}")`
 };
 
 export default function AuthPage() {
@@ -133,12 +141,12 @@ export default function AuthPage() {
   };
 
   return (
-    <main className="auth">
+    <main className="auth" style={imageVars}>
       <div className={`auth__card ${mode === 'signup' ? 'is-signup' : ''}`}>
         {/* Log in form (left) */}
         <section className={`auth__pane auth__pane--login ${mode === 'login' ? 'on' : ''}`}>
           <Logo />
-          <h1 className="auth__title">Welcome back</h1>
+          <h1 className="auth__title">Welcome back!</h1>
           <p className="auth__sub">{booking ? 'Log in to book your lesson.' : 'Log in to see your lessons and schedule.'}</p>
           <form className="auth__form" onSubmit={submitLogin} noValidate>
             <Field id="l-email" label="Email Address" type="email" icon="mail" auto="email" value={lf.email} onChange={e => setLf(f => ({ ...f, email: e.target.value }))} />
@@ -160,7 +168,7 @@ export default function AuthPage() {
           <p className="auth__sub">Join RemDrumStudio and start your musical journey.</p>
           <form className="auth__form" onSubmit={submitSignup} noValidate>
             <div className="auth__field">
-              <span className="auth__label" id="role-label">Choose a role:</span>
+              <span className="auth__label" id="role-label">Pick a role:</span>
               <div className="auth__roles" role="radiogroup" aria-labelledby="role-label">
                 {ROLES.map(([key, label]) => (
                   <button key={key} type="button" role="radio" aria-checked={role === key} className={role === key ? 'on' : ''} onClick={() => setRole(key)}>{label}</button>

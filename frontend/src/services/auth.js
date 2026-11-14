@@ -1,5 +1,3 @@
-// Auth service. While the backend/database isn't ready, USE_MOCK = true keeps everything in the browser.
-// When the backend has POST /api/auth/login and /api/auth/signup, set USE_MOCK = false.
 export const USE_MOCK = false;
 
 const API = '/api/auth';

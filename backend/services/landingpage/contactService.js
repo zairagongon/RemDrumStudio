@@ -1,4 +1,4 @@
-const contactModel = require('../models/contactModel');
+const contactModel = require('../../models/landingpage/contactModel');
 
 exports.saveMessage = async ({ name, email, message }) => {
   const clean = {
@@ -6,5 +6,7 @@ exports.saveMessage = async ({ name, email, message }) => {
     email: email.trim().toLowerCase().slice(0, 150),
     message: message.trim().slice(0, 2000)
   };
-  return contactModel.create(clean);
+  const id = await contactModel.create(clean);
+  // Future: send a notification email to the studio here
+  return id;
 };

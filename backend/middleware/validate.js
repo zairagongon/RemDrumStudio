@@ -27,3 +27,30 @@ exports.validateLogin = (req, res, next) => {
   }
   next();
 };
+
+const INSTRUMENTS = ['Drums', 'Piano', 'Voice', 'Guitar', 'Bass'];
+
+exports.validateCoach = (req, res, next) => {
+  const { fullName, email, instruments, inBand } = req.body || {};
+  if (!text(fullName, 100)) return bad(res, 'Please enter the coach’s full name.');
+  if (!EMAIL.test(String(email || '').trim()) || String(email).length > 150) return bad(res, 'Please enter a valid email.');
+  if (!Array.isArray(instruments) || !instruments.length || !instruments.every(i => INSTRUMENTS.includes(i))) {
+    return bad(res, 'Choose at least one instrument.');
+  }
+  req.body.instruments = [...new Set(instruments)];
+  req.body.inBand = inBand !== false;
+  next();
+};
+
+exports.validateCoachUpdate = (req, res, next) => {
+  const { inBand, isActive } = req.body || {};
+  const ok = v => v === undefined || typeof v === 'boolean';
+  if (!ok(inBand) || !ok(isActive) || (inBand === undefined && isActive === undefined)) return bad(res, 'Nothing valid to update.');
+  next();
+};
+
+exports.validateNewPassword = (req, res, next) => {
+  const { password } = req.body || {};
+  if (typeof password !== 'string' || password.length < 8 || password.length > 72) return bad(res, 'Password must be 8 to 72 characters.');
+  next();
+};

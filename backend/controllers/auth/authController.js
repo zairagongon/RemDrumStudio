@@ -1,4 +1,5 @@
-const authService = require('../services/authService');
+const authService = require('../../services/auth/authService');
+const inviteService = require('../../services/auth/inviteService');
 
 exports.signup = async (req, res, next) => {
   try {
@@ -19,4 +20,13 @@ exports.me = async (req, res, next) => {
     const user = await authService.getMe(req.user.id);
     res.json({ success: true, user });
   } catch (err) { next(err); }
+};
+
+// Coach opens an invite link
+exports.inviteInfo = async (req, res, next) => {
+  try { res.json({ success: true, ...(await inviteService.inviteInfo(req.params.token)) }); } catch (err) { next(err); }
+};
+
+exports.acceptInvite = async (req, res, next) => {
+  try { res.json({ success: true, ...(await inviteService.acceptInvite(req.params.token, req.body.password)) }); } catch (err) { next(err); }
 };

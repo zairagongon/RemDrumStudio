@@ -1,4 +1,4 @@
-const contactService = require('../services/contactService');
+const contactService = require('../../services/landingpage/contactService');
 
 exports.sendMessage = async (req, res, next) => {
   try {

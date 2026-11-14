@@ -1,4 +1,4 @@
-const db = require('../config/db');
+const db = require('../../config/db');
 
 exports.create = async ({ name, email, message }) => {
   const [result] = await db.execute(

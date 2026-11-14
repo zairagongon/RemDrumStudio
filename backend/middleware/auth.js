@@ -1,4 +1,4 @@
-const authService = require('../services/authService');
+const authService = require('../services/auth/authService');
 
 exports.requireAuth = (req, res, next) => {
   const header = req.headers.authorization || '';
@@ -13,6 +13,7 @@ exports.requireAuth = (req, res, next) => {
   }
 };
 
+// Example: router.get('/students', requireAuth, requireRole('admin', 'coach'), handler)
 exports.requireRole = (...roles) => (req, res, next) => {
   if (!roles.includes(req.user?.role)) return res.status(403).json({ success: false, message: 'You do not have access to this.' });
   next();
