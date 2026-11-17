@@ -5,6 +5,12 @@ import AuthPage from './pages/authentication/authpage.jsx';
 import AdminLayout from './pages/admin/adminlayout.jsx';
 import OverviewPage from './pages/admin/overview/overviewpage.jsx';
 import BandBookingsPage from './pages/admin/bandbookingpage/bandbooking.jsx';
+import CoachLayout from './pages/coach/coachlayout.jsx';
+import CoachDashboard from './pages/coach/dashboard/coachDashboard.jsx';
+import CoachSchedule from './pages/coach/schedule/coachSchedule.jsx';
+import CoachStudents from './pages/coach/students/coachStudents.jsx';
+import CoachBookings from './pages/coach/bookings/coachBookings.jsx';
+import CoachPayments from './pages/coach/payments/coachPayments.jsx';
 import RequireRole from './components/RequireRole.jsx';
 import ComingSoon from './components/ComingSoon.jsx';
 
@@ -31,8 +37,17 @@ export default function App() {
         <Route path="people" element={<ComingSoon title="Parents & Students" />} />
       </Route>
 
+      {/* Coach area (coaches only) */}
+      <Route path="/coach" element={<RequireRole role="coach"><CoachLayout /></RequireRole>}>
+        <Route index element={<Navigate to="dashboard" replace />} />
+        <Route path="dashboard" element={<CoachDashboard />} />
+        <Route path="schedule" element={<CoachSchedule />} />
+        <Route path="students" element={<CoachStudents />} />
+        <Route path="bookings" element={<CoachBookings />} />
+        <Route path="payments" element={<CoachPayments />} />
+      </Route>
+
       {/* Other dashboards: not built yet */}
-      <Route path="/coach" element={<RequireRole role="coach"><ComingSoon standalone title="Coach dashboard" /></RequireRole>} />
       <Route path="/parent" element={<RequireRole role="parent"><ComingSoon standalone title="Parent dashboard" /></RequireRole>} />
       <Route path="/student" element={<RequireRole role="student"><ComingSoon standalone title="Student dashboard" /></RequireRole>} />
 
