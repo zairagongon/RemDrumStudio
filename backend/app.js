@@ -7,6 +7,7 @@ const fs = require('fs');
 const authRoutes = require('./routes/auth/authRoutes');
 const adminRoutes = require('./routes/admin/adminRoutes');
 const landingpageRoutes = require('./routes/landingpage/landingpageRoutes');
+const coachRoutes = require('./routes/coach/coachRoutes');
 const errorHandler = require('./middleware/errorHandler');
 
 const app = express();
@@ -18,6 +19,7 @@ app.use(express.json());
 app.use('/api/auth', authRoutes);
 app.use('/api/admin', adminRoutes);
 app.use('/api/landingpage', landingpageRoutes);
+app.use('/api', coachRoutes);
 
 const distPath = path.join(__dirname, '..', 'frontend', 'dist');
 if (fs.existsSync(distPath)) {

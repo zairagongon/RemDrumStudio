@@ -1,0 +1,421 @@
+/* coachSchedule.css - Self-contained CSS for coachSchedule.jsx (Figure 9) */
+
+.cs-container {
+  padding: 24px;
+  max-width: 1024px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+@media (min-width: 768px) {
+  .cs-container {
+    padding: 32px;
+  }
+}
+
+.cs-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.cs-page-title {
+  margin: 0;
+  font-size: 24px;
+  line-height: 1.25;
+  font-weight: 700;
+  color: #172347;
+  letter-spacing: -0.025em;
+}
+
+.cs-page-subtitle {
+  margin: 2px 0 0;
+  font-size: 14px;
+  color: #64748b;
+}
+
+.cs-alert {
+  padding: 12px;
+  background-color: #eff6ff;
+  border: 1px solid #bfdbfe;
+  color: #1e40af;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.cs-form-card {
+  background-color: #ffffff;
+  border: 1px solid #dce6f2;
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+}
+
+.cs-form-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+  align-items: end;
+}
+
+@media (min-width: 640px) {
+  .cs-form-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+.cs-field-label {
+  display: block;
+  font-size: 11px;
+  font-weight: 700;
+  color: #5a6c85;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 4px;
+}
+
+.cs-input-wrap {
+  position: relative;
+}
+
+.cs-input {
+  width: 100%;
+  background-color: #f8fbfe;
+  border: 1px solid #cbdbe9;
+  border-radius: 8px;
+  padding: 8px 32px 8px 12px;
+  font-size: 12px;
+  color: #172347;
+}
+
+.cs-input:focus {
+  outline: none;
+  border-color: #273468;
+}
+
+.cs-input-icon {
+  width: 16px;
+  height: 16px;
+  color: #94a3b8;
+  position: absolute;
+  right: 10px;
+  top: 9px;
+  pointer-events: none;
+}
+
+.cs-btn-dark {
+  background-color: #273468;
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 500;
+  border-radius: 6px;
+  padding: 8px 16px;
+  border: none;
+  cursor: pointer;
+}
+
+.cs-btn-dark:hover {
+  background-color: #1c2752;
+}
+
+.cs-submit-btn {
+  width: 100%;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.025em;
+}
+
+.cs-btn-action {
+  background-color: #ffffff;
+  border: 1px solid #cbdbe9;
+  color: #334155;
+  font-size: 12px;
+  font-weight: 500;
+  border-radius: 6px;
+  padding: 5px 12px;
+  cursor: pointer;
+}
+
+.cs-btn-action:hover {
+  background-color: #f1f5f9;
+  border-color: #b0c4de;
+}
+
+.cs-pill-blue {
+  background-color: #b9d3f7;
+  color: #1d3c7e;
+  border-radius: 9999px;
+  font-size: 11px;
+  font-weight: 500;
+  padding: 3px 12px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1.2;
+}
+
+.cs-week-wrapper {
+  background-color: #eff5fc;
+  border: 1px solid #d2e3f5;
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+  overflow-x: auto;
+}
+
+.cs-week-grid {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(92px, 1fr));
+  gap: 8px;
+}
+
+.cs-day-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.cs-day-header {
+  background-color: #dbe8fa;
+  padding: 8px 0;
+  text-align: center;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  border-bottom: 1px solid #c8dbf2;
+}
+
+.cs-day-label {
+  font-size: 12px;
+  font-weight: 700;
+  color: #1f2d57;
+  letter-spacing: 0.05em;
+}
+
+.cs-day-body {
+  background-color: #e4effb;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  padding: 8px;
+  min-height: 190px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.cs-slot-booked {
+  background-color: #8eafe3;
+  color: #162955;
+  border-radius: 6px;
+  padding: 8px 6px;
+  text-align: center;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.cs-slot-available {
+  background-color: #9fe0ba;
+  color: #0d4a2b;
+  border-radius: 6px;
+  padding: 8px 6px;
+  text-align: center;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.cs-slot-time {
+  margin: 0;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.cs-slot-status {
+  margin: 2px 0 0;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  text-transform: uppercase;
+}
+
+.cs-unavailable-wrap {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 0;
+}
+
+.cs-unavailable-text {
+  font-size: 12px;
+  color: #7c8ca3;
+  font-style: italic;
+}
+
+.cs-slots-card {
+  background-color: #ffffff;
+  border: 1px solid #dce6f2;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+@media (min-width: 768px) {
+  .cs-slots-card {
+    padding: 24px;
+  }
+}
+
+.cs-slots-title {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 700;
+  color: #172347;
+}
+
+.cs-slots-list > .cs-slot-row + .cs-slot-row {
+  border-top: 1px solid #f1f5f9;
+}
+
+.cs-slot-row {
+  padding: 12px 8px;
+  margin-left: -8px;
+  margin-right: -8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 12px;
+  border-radius: 8px;
+}
+
+.cs-slot-row:hover {
+  background-color: #f8fbfe;
+}
+
+@media (min-width: 640px) {
+  .cs-slot-row {
+    flex-direction: row;
+    align-items: center;
+  }
+}
+
+.cs-slot-date-col {
+  width: 192px;
+  flex-shrink: 0;
+}
+
+.cs-slot-date {
+  margin: 0;
+  font-size: 12px;
+  font-weight: 700;
+  color: #172347;
+}
+
+.cs-slot-hours {
+  margin: 0;
+  font-size: 12px;
+  color: #64748b;
+}
+
+.cs-slot-tutor-col {
+  flex: 1 1 0%;
+}
+
+.cs-slot-tutor {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 700;
+  color: #172347;
+}
+
+.cs-slot-lesson {
+  margin: 0;
+  font-size: 12px;
+  color: #64748b;
+}
+
+.cs-slot-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.cs-edit-btn {
+  margin-left: 8px;
+}
+
+.cs-delete-btn {
+  color: #dc2626;
+}
+
+.cs-delete-btn:hover {
+  color: #b91c1c;
+}
+
+/* Self-contained Notification Bell */
+.cs-notif-wrapper { position: relative; display: inline-block; }
+.cs-notif-bell-btn { position: relative; padding: 8px; color: #64748b; background: transparent; border: none; border-radius: 9999px; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+.cs-notif-bell-btn:hover { color: #1e293b; background-color: #f1f5f9; }
+.cs-notif-bell-icon { width: 20px; height: 20px; }
+.cs-notif-badge-count { position: absolute; top: -2px; right: -2px; min-width: 18px; height: 18px; padding: 0 4px; background-color: #dc2626; color: #ffffff; font-size: 10px; font-weight: 800; border-radius: 9999px; display: flex; align-items: center; justify-content: center; border: 2px solid #ffffff; }
+.cs-notif-dropdown { position: absolute; right: 0; margin-top: 8px; width: 320px; background-color: #ffffff; border-radius: 12px; border: 1px solid #e2e8f0; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25); z-index: 50; overflow: hidden; }
+@media (min-width: 640px) { .cs-notif-dropdown { width: 384px; } }
+.cs-notif-dropdown-header { padding: 12px 16px; background-color: #1f295b; color: #ffffff; display: flex; align-items: center; justify-content: space-between; }
+.cs-notif-header-left { display: flex; align-items: center; gap: 8px; }
+.cs-notif-header-bell { width: 16px; height: 16px; color: #facc15; }
+.cs-notif-header-title { margin: 0; font-weight: 700; font-size: 12px; }
+.cs-notif-header-pill { background-color: #ef4444; color: #ffffff; font-size: 10px; font-weight: 700; padding: 1px 6px; border-radius: 9999px; }
+.cs-notif-header-actions { display: flex; align-items: center; gap: 8px; }
+.cs-notif-mark-all-btn { font-size: 11px; color: #9cb0cf; background: transparent; border: none; cursor: pointer; display: flex; align-items: center; gap: 4px; }
+.cs-notif-mark-all-btn:hover { color: #ffffff; }
+.cs-notif-check-icon { width: 14px; height: 14px; }
+.cs-notif-close-btn { color: #cbd5e1; padding: 2px; background: transparent; border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+.cs-notif-close-btn:hover { color: #ffffff; }
+.cs-notif-close-icon { width: 16px; height: 16px; }
+.cs-notif-filter-bar { display: flex; align-items: center; gap: 8px; padding: 8px 12px; background-color: #f8fafc; border-bottom: 1px solid #f1f5f9; }
+.cs-notif-filter-btn { padding: 4px 10px; border-radius: 6px; font-size: 12px; font-weight: 600; border: 1px solid transparent; background: transparent; color: #64748b; cursor: pointer; }
+.cs-notif-filter-btn-active { background-color: #ffffff; color: #172347; border-color: #e2e8f0; }
+.cs-notif-list-scroll { max-height: 360px; overflow-y: auto; }
+.cs-notif-list-scroll > .cs-notif-item-row + .cs-notif-item-row { border-top: 1px solid #f1f5f9; }
+.cs-notif-item-row { padding: 14px; display: flex; align-items: flex-start; gap: 12px; cursor: pointer; }
+.cs-notif-item-row:hover { background-color: #f0f6fd; }
+.cs-notif-item-unread { background-color: #f8fbfe; }
+.cs-notif-item-read { background-color: #ffffff; opacity: 0.85; }
+.cs-notif-item-icon-box { padding: 8px; border-radius: 8px; background-color: #f1f5f9; flex-shrink: 0; display: flex; align-items: center; justify-content: center; }
+.cs-notif-type-icon { width: 16px; height: 16px; }
+.cs-notif-type-reschedule { color: #f59e0b; }
+.cs-notif-type-payment { color: #10b981; }
+.cs-notif-type-schedule { color: #3b82f6; }
+.cs-notif-type-student { color: #6366f1; }
+.cs-notif-type-default { color: #64748b; }
+.cs-notif-item-body { flex: 1 1 0%; min-width: 0; }
+.cs-notif-item-top { display: flex; align-items: center; justify-content: space-between; gap: 4px; }
+.cs-notif-item-title { margin: 0; font-size: 12px; font-weight: 700; color: #172347; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.cs-notif-item-time { font-size: 10px; color: #94a3b8; flex-shrink: 0; font-weight: 500; }
+.cs-notif-item-message { margin: 2px 0 0; font-size: 11px; color: #475569; line-height: 1.375; }
+.cs-notif-item-footer { margin-top: 8px; display: flex; align-items: center; justify-content: space-between; }
+.cs-notif-action-link { font-size: 10px; font-weight: 700; color: #1f295b; display: flex; align-items: center; gap: 4px; }
+.cs-notif-chevron-icon { width: 12px; height: 12px; }
+.cs-notif-unread-dot { width: 8px; height: 8px; border-radius: 9999px; background-color: #2563eb; }
+.cs-notif-empty { padding: 32px 16px; text-align: center; color: #94a3b8; font-size: 12px; }
+.cs-notif-dropdown-footer { padding: 8px; background-color: #f8fafc; border-top: 1px solid #f1f5f9; text-align: center; }
+.cs-notif-footer-text { margin: 0; font-size: 10px; color: #64748b; font-weight: 500; }
+
+/* Self-contained Modal */
+.cs-modal-backdrop { position: fixed; inset: 0; z-index: 50; display: flex; align-items: center; justify-content: center; padding: 16px; background-color: rgba(0, 0, 0, 0.4); backdrop-filter: blur(2px); }
+.cs-modal-dialog { background-color: #ffffff; border-radius: 12px; border: 1px solid #e2e8f0; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25); width: 100%; max-width: 512px; overflow: hidden; }
+.cs-modal-header { display: flex; align-items: center; justify-content: space-between; padding: 16px 24px; border-bottom: 1px solid #f1f5f9; background-color: #f8fbfe; }
+.cs-modal-title { margin: 0; font-weight: 700; color: #172347; font-size: 16px; }
+.cs-modal-close-btn { color: #94a3b8; padding: 4px; border-radius: 6px; border: none; background: transparent; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+.cs-modal-close-btn:hover { color: #475569; background-color: #f1f5f9; }
+.cs-modal-close-icon { width: 20px; height: 20px; }
+.cs-modal-content { padding: 24px; }
+.cs-modal-body { display: flex; flex-direction: column; gap: 16px; }
+.cs-modal-label { display: block; font-size: 12px; font-weight: 700; color: #475569; margin-bottom: 4px; }
+.cs-modal-input { width: 100%; border: 1px solid #cbd5e1; border-radius: 8px; padding: 8px; font-size: 12px; color: #1e293b; background-color: #ffffff; }
+.cs-modal-footer { padding-top: 8px; display: flex; justify-content: flex-end; gap: 8px; }
